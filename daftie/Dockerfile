@@ -6,8 +6,8 @@ RUN pip install -r /tmp/requirements.txt
 
 WORKDIR /daftie
 
-COPY ./daftie/daftie ./daftie
-COPY ./daftie/scrapy.cfg ./scrapy.cfg
+COPY ./daftie ./daftie
+COPY ./scrapy.cfg ./scrapy.cfg
 
 RUN useradd -c 'daft.ie crawler user' -d /data -m -s /bin/false -U  daftie
 
