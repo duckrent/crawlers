@@ -8,6 +8,7 @@ WORKDIR /daftie
 
 COPY ./daftie ./daftie
 COPY ./scrapy.cfg ./scrapy.cfg
+COPY ./docker-entrypoint.sh ./docker-entrypoint.sh
 
 RUN useradd -c 'daft.ie crawler user' -d /data -m -s /bin/false -U  daftie
 
@@ -17,4 +18,4 @@ USER daftie
 
 VOLUME /data
 
-CMD ["scrapy", "crawl", "rent", "-O", "/data/daftie-$(date +%F-%H-%M).csv", "-t", "csv"]
+ENTRYPOINT "/daftie/docker-entrypoint.sh"
